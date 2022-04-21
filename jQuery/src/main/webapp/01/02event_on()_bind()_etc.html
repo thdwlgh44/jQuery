@@ -19,46 +19,88 @@
 		Event 연결 Function
 		- bind( eventType, CallBack Method)
 			: event 연결 ==> event 발생시 CallBackMethod 호출
-		- on
+		- on( eventType, CallBack Method)
+			: event 연결 ==> event 발생시 CallBackMethod 호출
+			
+		- eventType
+			: 마우스 이벤트 : click, dbclick, mousedown, mousemove, mouseout, mouseover, mouseup
+			: 키보드 이벤트 : keydown, keypress, keyup
+			: 윈 도 이벤트 : ready, load, resize, scroll
+			: 입력양식 이벤트 : change, focus, select, submit, reset
+			
+		Event 제거 Function
+		- off()
+		
+		구체적 Event 처리 Function:
+			- submit ( CallBack Method )
+			- click ( CallBack Method )
+			- dbclick ( CallBack Method )
+			- change ( CallBack Method )
+			- focus ( CallBack Method )
+			- keydown ( CallBack Method )
+			- etc
 	*/
 	
-	$(document).ready( function(){
+	$( function(){
 	
-		//--> 주석 이해하기
-		//==> $('body *')와 $('body > *') 차이점 확인
-		//$('form').css('color','red');
-		//$('form[name]').css('color','red');
+		/*[실습1]
+		$('input[type="button"]').val("전송 click event bind() ");
 		
-		//==> 해당하는 Object가 여러개일 경우 Array 생성
-		//$( $('form[name]')[0] ).css('color','red');
-		//$( $('form[name]')[1] ).css('color','red');
+		//$('input[type="button"]').bind('click', function(){
+		$('input[type="button"]').on('click', function(){
+			$('form').attr("action","abc.do").submit();			
+		});
+		*/
 		
-		//$('form[name="test01"]').css('color','red');
-		//$('form p').css('color','red');
-		//$('form[name="test01"]p').css('color','red');
-		//$('form[name="test01"]p, form[name="test02"]span').css('color','red');
 		
+		/*/[실습2]
+		$('input[type="button"]').val("전송 click event bind() ").bind('click', function(){
+			$('form').attr("action","abc.do").submit();
+		});
+		*/
+		
+		//[실습3]
+		$('input[type="button"]').val("전송 두번 click event on() ").on('dblclick', function(){
+			$('form').attr("action","abc.do").submit();
+		});
+		
+		
+		/*[실습4]
+		$('form').submit( function() {
+			$(this).attr("action","abc.do");
+		});
+		*/
 	});
 	
 	</script>
+	
 </head>
 
 <body>
 
-	<h1>javascript Framework: jQuery 학습</h1>
-	<h2>사용법에 익숙해지자</h2>
+	<form method='post' name="myForm">
 	
-	<form name="test01">
-		<p>jQuery 란 ?</p>
-	</form>
+		이름<input type='text' name='name' value='이름입력'><br>
+		주소<input type='text' name='addr' ><br><p>
+
+		사용중인 소프트웨어 선택<br>
+		<input type='checkbox' name='sw' value='hwp' checked="checked">hwp<br>
+		<input type='checkbox' name='sw' value='MS/WORD' checked="checked">MS/WORD<br>
+		<input type='checkbox' name='sw' value='EXCEL'>EXCEL<br><p>
+
+		사용중인 OS 선택<br>
+		<input type='radio' name='os' value='win2000' checked="checked">win2000<br>
+		<input type='radio' name='os' value='linux'>리눅스<br><p>
+
+		사용중인 CPU 선택<br>
+		<input type='radio' name='cpu' value='i3'>i3<br>
+		<input type='radio' name='cpu' value='i5'>i5<br>
+		<input type='radio' name='cpu' value='i7' checked="checked">i7<br>
+
+		<input type="button"  value='button전송'>
+		<input type="submit" value="submit전송">
+		<input type='reset' value='취소'>
 	
-	<div>
-		<p> javascript Framework </p>
-	</div>
-	
-	<form name="test02">
-		<p>Framework 이란 ?</p>
-			<span>확장,재사용 가능한 Lib</span>
 	</form>
 		
 </body>

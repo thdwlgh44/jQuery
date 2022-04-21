@@ -24,6 +24,23 @@
 	 	  				$('input:enabled')
 	 	  				$('input:focus')
 	 	  				$('input:checked')
+	 	  				
+				2. 위치 필터 선택자  :$(elemet:위치정보)
+		  		예> $('element:odd')
+		  			$('element:even')
+		  			$('element:first')
+		  			$('element:last')
+		  			
+		  		3. 함수 필터 selector  :$(element:function)
+	 			예> $('elemnt:contains(문자열)')
+		  			$('elemnt:not(selector)')
+		  			$('elemnt:eq(index)')
+		  			$('elemnt:gt(index)')
+		  			$('elemnt:lt(index)')
+		  			$('elemnt:lt(index)')
+		  		
+		  		4.기타
+		  		예>$('element:empty') 등등..	 	  				
 		*/
 		
 		$(document).ready( function(){
@@ -34,14 +51,14 @@
 			//$('input:even').css('color', 'red');
 			//$('input:odd').css('color', 'red');
 			
-			$('input:eq(0)').css('color', 'red');
-			$('input:eq(12)').css('color', 'red');
-			$('input:gt(11)').css('color', 'red');
-			$('input:lt(11)').css('color', 'red');
+			//$('input:eq(0)').css('color', 'red');//input type의 0번째, 0부터 시작?
+			//$('input:eq(12)').css('color', 'red');//input type의 12번째
+			//$('input:gt(11)').css('color', 'red');//input type의 11번째, 1부터 시작?
+			$('input:lt(11)').css('color', 'red');//첫번째 input type, 마지막 input tpye을 가리킴
 			
-			$("p:contains('jQuery')").css('color', 'red');
-			$("p:contains('frame')").css('color', 'red');
-			$("p:contains('Frame')").css('color', 'red');
+			//$("p:contains('jQuery')").css('color', 'red');//jQuery를 포함한 <p>
+			//$("p:contains('frame')").css('color', 'red');//frame를 포함한 <p>
+			//$("p:contains('Frame')").css('color', 'red');//Frame를 포함한 <p>
 			
 		});
 		
